@@ -12,27 +12,31 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    private Double score;
     @Column(name = "game_year")
     private Integer year;
     private String genre;
-    private String plataform;
+    private String platforms;
     private String imgUrl;
-    private String shorDescription;
+    @Column(columnDefinition = "TEXT")
+    private String shortDescription;
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game() {
 
     }
 
-    public Game(Long id, String title, Integer year, String genre, String imgUrl,
-                String plataform, String shorDescription, String longDescription) {
+    public Game(Long id, String title, Double score, Integer year, String genre, String imgUrl,
+                String platforms, String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
+        this.score = score;
         this.year = year;
         this.genre = genre;
         this.imgUrl = imgUrl;
-        this.plataform = plataform;
-        this.shorDescription = shorDescription;
+        this.platforms = platforms;
+        this.shortDescription = shortDescription;
         this.longDescription = longDescription;
     }
 
@@ -52,6 +56,10 @@ public class Game {
         this.title = title;
     }
 
+    public Double getScore() {return this.score;}
+
+    public void setScore(Double score) {this.score = score;}
+
     public Integer getYear() {
         return year;
     }
@@ -68,12 +76,12 @@ public class Game {
         this.genre = genre;
     }
 
-    public String getPlataform() {
-        return plataform;
+    public String getPlataforms() {
+        return platforms;
     }
 
-    public void setPlataform(String plataform) {
-        this.plataform = plataform;
+    public void setPlataforms(String plataforms) {
+        this.platforms = plataforms;
     }
 
     public String getImgUrl() {
@@ -84,12 +92,12 @@ public class Game {
         this.imgUrl = imgUrl;
     }
 
-    public String getShorDescription() {
-        return shorDescription;
+    public String getShortDescription() {
+        return shortDescription;
     }
 
-    public void setShorDescription(String shorDescription) {
-        this.shorDescription = shorDescription;
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public String getLongDescription() {
